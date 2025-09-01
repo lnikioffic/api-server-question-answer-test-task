@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16
+    container_name: postgres-q
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+    env_file:
+      - .env
+    networks:
+      - net
+
+  app:
+    build:
+      context: .
+    env_file:
+      - .env
+    container_name: answer-app
+    ports:
+      - 9000:8000
+    depends_on:
+      - db
+    networks:
+      - net
+
+volumes:
+  db:
+    driver: local
+
+networks:
+  net:
