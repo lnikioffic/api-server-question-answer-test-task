@@ -2,7 +2,7 @@
 
 ## Запуск
 
-- Создать вайл .env по образдцу .env-example
+- Создать файл .env по образдцу .env-example
 - Запустить docker `docker-compose up --build`
 
 ## Функциональные требования
